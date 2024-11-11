@@ -12,18 +12,19 @@ import sequelize from "./config/connection.js";
 // const __dirname = path.dirname(__filename);
 
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3001;
 const forceDatabaseRefresh = false;
 
 app.use(cors({
-  origin: "https://test-deploy-ivka.onrender.com",
+  origin: "http://localhost:3000",
   credentials: true, 
 }));
 
 // Serves static files in the entire client's dist folder
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 app.use(express.static("../client/dist"));
 
-app.use(express.json());
 app.use(routes);
 
 console.log("FRONTEND_URL:", process.env.FRONTEND_URL);
