@@ -4,14 +4,38 @@ dotenv.config();
 import { Sequelize } from 'sequelize';
 
 // ORIGINAL SEQUELIZE
+// const sequelize = process.env.DB_URL
+//   ? new Sequelize(process.env.DB_URL)
+//   : new Sequelize(
+//       process.env.DB_NAME || '',
+//       process.env.DB_USER || '',
+//       process.env.DB_PASSWORD,
+//       {
+//         host: 'localhost',
+//         dialect: 'postgres',
+//         dialectOptions: {
+//           decimalNumbers: true,
+//           charset: 'utf8',
+//         },
+//       }
+//     );
+
 const sequelize = process.env.DB_URL
-  ? new Sequelize(process.env.DB_URL)
+  ? new Sequelize(process.env.DB_URL, {
+      dialectOptions: {
+        ssl: {
+          require: true, // Ensure SSL is required for Render
+          rejectUnauthorized: false, // Allow self-signed SSL certs
+        },
+      },
+    })
   : new Sequelize(
       process.env.DB_NAME || '',
       process.env.DB_USER || '',
       process.env.DB_PASSWORD,
       {
-        host: 'localhost',
+        host: process.env.DB_HOST || 'localhost',
+        port: (process.env.DB_PORT || '5432', 10),
         dialect: 'postgres',
         dialectOptions: {
           decimalNumbers: true,
