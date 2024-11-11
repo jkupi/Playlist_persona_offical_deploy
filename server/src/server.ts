@@ -21,7 +21,7 @@ app.use(cors({
 }));
 
 // Serves static files in the entire client's dist folder
-app.use(express.static("../client/dist"));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.use(express.json());
 app.use(routes);
@@ -75,7 +75,7 @@ app.post("/playlist", async (req: Request, res: Response) => {
 });
 
 app.get('*', (_req, res) => {
-  res.sendFile(path.join(__dirname, 'client/dist', 'index.html'));
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });
 
 app.get("/questions", async (_req: Request, res: Response) => {
