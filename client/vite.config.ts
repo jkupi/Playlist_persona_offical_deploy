@@ -8,12 +8,12 @@ export default defineConfig({
     open: true,
     proxy: {
       '/api': {
-        target: 'http://localhost:3001',
+        target: 'https://test-deploy-ivka.onrender.com',
         changeOrigin: true,
         secure: false,
       },
       '/auth': {
-        target: 'http://localhost:3001',
+        target: 'https://test-deploy-ivka.onrender.com',
         changeOrigin: true,
         secure: false,
       },
