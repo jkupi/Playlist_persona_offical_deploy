@@ -27,7 +27,7 @@ export const searchSong = async (songTitle: string, artistName: string): Promise
     if (items && items.length > 0) {
       const video = items[0];
       const videoUrl = `${video.id?.videoId}`;
-      console.log(videoUrl);
+      // console.log(videoUrl);
       return videoUrl;
     } else {
       console.log("No video found");
