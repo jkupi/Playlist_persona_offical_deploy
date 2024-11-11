@@ -36,20 +36,41 @@ console.log("DB User:", process.env.DB_USER);
 console.log("DB Name:", process.env.DB_NAME);
 console.log("DB Password:", process.env.DB_PASSWORD);
 
+// const sequelize = new Sequelize(
+//   process.env.DB_NAME!, // Force TypeScript to treat this as a string (assuming it's defined in your .env)
+//   process.env.DB_USER!,
+//   process.env.DB_PASSWORD!,
+//   {
+//     host: process.env.DB_HOST!,
+//     // Convert DB_PORT from string to number explicitly
+//     port: parseInt(process.env.DB_PORT || '5432', 10), // Default to 5432 if DB_PORT is undefined
+//     dialect: "postgres",
+//     logging: false, // Set to true for query logging (helpful for debugging)
+//     dialectOptions: {
+//       ssl: {
+//         require: true,
+//         rejectUnauthorized: false, // Ensure you allow SSL connections for Render
+//       },
+//     },
+//   }
+// );
+
+const dbUrl = process.env.DB_HOST!;
+const { host, pathname, username, password } = new URL(dbUrl);
+
 const sequelize = new Sequelize(
-  process.env.DB_NAME!, // Force TypeScript to treat this as a string (assuming it's defined in your .env)
-  process.env.DB_USER!,
-  process.env.DB_PASSWORD!,
+  pathname?.slice(1) || '', // Extract the DB name by removing the leading '/'
+  username || '',
+  password || '',
   {
-    host: process.env.DB_HOST!,
-    // Convert DB_PORT from string to number explicitly
-    port: parseInt(process.env.DB_PORT || '5432', 10), // Default to 5432 if DB_PORT is undefined
-    dialect: "postgres",
-    logging: false, // Set to true for query logging (helpful for debugging)
+    host: host || '',
+    port: parseInt(process.env.DB_PORT || '5432', 10), // Ensure port is set or defaults to 5432
+    dialect: 'postgres',
+    logging: false, // Set to true to log queries for debugging
     dialectOptions: {
       ssl: {
-        require: true,
-        rejectUnauthorized: false, // Ensure you allow SSL connections for Render
+        require: true, // Ensure SSL is required for Render
+        rejectUnauthorized: false, // Allow self-signed SSL certs (necessary for Render)
       },
     },
   }
