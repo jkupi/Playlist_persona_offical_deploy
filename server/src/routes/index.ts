@@ -2,11 +2,11 @@ import { Router } from 'express';
 import apiRoutes from './api/index.js';
 import authRoutes from './auth-routes.js';
 // import { authenticateToken } from '../middleware/auth.js';
-import path from "path";
-import { fileURLToPath } from "url";
+// import path from "path";
+// import { fileURLToPath } from "url";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
 
 const router = Router();
 
