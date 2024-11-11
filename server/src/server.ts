@@ -20,7 +20,7 @@ app.use(cors({
 // Serves static files in the entire client's dist folder
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-app.use(express.static(path.join(__dirname, "../../../client/dist")));
+app.use(express.static(path.join(__dirname, "../../client/dist")));
 
 app.use(routes);
 
