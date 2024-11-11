@@ -11,13 +11,18 @@ const app = express();
 const port = process.env.PORT || 3001;
 const forceDatabaseRefresh = false;
 
-app.use(cors({ origin: process.env.FRONTEND_URL || "http://localhost:3000" }));
+app.use(cors({
+  origin: process.env.FRONTEND_URL || "http://localhost:3000",
+  credentials: true, 
+}));
 
 // Serves static files in the entire client's dist folder
 app.use(express.static("../client/dist"));
 
 app.use(express.json());
 app.use(routes);
+
+console.log("FRONTEND_URL:", process.env.FRONTEND_URL);
 
 sequelize.sync({ force: forceDatabaseRefresh }).then(() => {
   app.listen(port, () => {
