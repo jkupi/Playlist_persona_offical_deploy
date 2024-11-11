@@ -4,12 +4,12 @@ import { generatePlaylist, generateQuestions } from "./services/gptServices.js";
 import { searchSong } from "./services/youtubeServices.js";
 import cors from "cors";
 import sequelize from "./config/connection.js";
-import path from "path";
-import { fileURLToPath } from "url";
+// import path from "path";
+// import { fileURLToPath } from "url";
 // const cors = require('cors');
 // import app from "./app.js";
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
 
 const app = express();
 const port = process.env.PORT || 3001;
