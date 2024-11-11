@@ -35,6 +35,7 @@ console.log("DB Port:", process.env.DB_PORT);
 console.log("DB User:", process.env.DB_USER);
 console.log("DB Name:", process.env.DB_NAME);
 console.log("DB Password:", process.env.DB_PASSWORD);
+console.log("DB Password:", process.env.FRONTEND_URL);
 
 // const sequelize = new Sequelize(
 //   process.env.DB_NAME!, // Force TypeScript to treat this as a string (assuming it's defined in your .env)
