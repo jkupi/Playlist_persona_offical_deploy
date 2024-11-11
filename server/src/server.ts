@@ -74,9 +74,9 @@ app.post("/playlist", async (req: Request, res: Response) => {
   }
 });
 
-app.get('/', (_req, res) => {
-  res.send('Welcome to the Playlist Persona API!');
-});
+// app.get('/', (_req, res) => {
+//   res.send('Welcome to the Playlist Persona API!');
+// });
 
 // app.get('*', (_req, res) => {
 //   res.sendFile('../client/dist/index.html');
