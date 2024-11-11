@@ -12,7 +12,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const port = process.env.PORT || 3001;
+const port = 3001;
 const forceDatabaseRefresh = false;
 
 app.use(cors({
@@ -74,9 +74,9 @@ app.post("/playlist", async (req: Request, res: Response) => {
   }
 });
 
-app.get('/', (_req, res) => {
-  res.sendFile('index.html', { root: path.join(__dirname, "../../client/dist") });
-});
+// app.get('/', (_req, res) => {
+//   res.sendFile('index.html', { root: path.join(__dirname, "../../client/dist") });
+// });
 
 // app.get('*', (_req, res) => {
 //   res.sendFile('../client/dist/index.html');
