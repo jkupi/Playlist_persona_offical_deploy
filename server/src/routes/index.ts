@@ -10,9 +10,9 @@ const __dirname = path.dirname(__filename);
 
 const router = Router();
 
-router.get("/", (_req, res) => {
-    res.sendFile(path.join(__dirname, '../../../client/dist/index.html'));
-});
+// router.get("/", (_req, res) => {
+//     res.sendFile(path.join(__dirname, '../../../client/dist/index.html'));
+// });
 
 router.use('/auth', authRoutes);
 router.use('/api', apiRoutes);

@@ -24,6 +24,10 @@ app.use(express.static(path.join(__dirname, "../client/dist")));
 
 app.use(routes);
 
+app.get('*', (_req, res) => {
+  res.sendFile(path.join(__dirname, '../../../client/dist', 'index.html')); // Adjust the path as needed
+});
+
 console.log("FRONTEND_URL:", process.env.FRONTEND_URL);
 
 sequelize.sync({ force: forceDatabaseRefresh }).then(() => {
