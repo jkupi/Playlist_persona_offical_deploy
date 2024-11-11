@@ -1,0 +1,58 @@
+{
+  "name": "playlist-persona",
+  "version": "1.0.0",
+  "description": "A playlist generator based on a short-form questionnaire",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run client:build && npm run server",
+    "start:dev": "concurrently \"npm run server:dev\" \"wait-on tcp:3000 && npm run client:dev\"",
+    "server:dev": "cd server && npm run dev",
+    "client:dev": "cd client && npm run dev",
+    "client:build": "cd client && npm run build",
+    "build": "cd server && npm run build",
+    "seed": "cd server && npm run seed",
+    "render-build": "npm install && npm run build",
+    "install": "cd server && npm install && cd ../client && npm install",
+    "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\""
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/jwt-decode": "^2.2.1",
+    "@types/node": "^22.9.0",
+    "@types/sequelize": "^4.28.20",
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.1.7",
+    "typescript": "^5.6.3",
+    "wait-on": "^7.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ikebyers/Playlist-Persona.git"
+  },
+  "author": "Ike Byers, Jaakob Alakulppi, Maher AboulHosn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ikebyers/Playlist-Persona/issues"
+  },
+  "homepage": "https://github.com/ikebyers/Playlist-Persona#readme",
+  "dependencies": {
+    "@types/react-youtube": "^7.6.2",
+    "bcrypt": "^5.1.1",
+    "bootstrap": "^5.3.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "googleapis": "^144.0.0",
+    "jwt-decode": "^4.0.0",
+    "popper.js": "^1.16.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0",
+    "react-toastify": "^10.0.6",
+    "react-youtube": "^10.1.0",
+    "sequelize": "^6.37.5"
+  }
+}

@@ -1,0 +1,11 @@
+{
+    "extends": "../tsconfig.json",
+    "compilerOptions": {
+        "outDir": "./dist",
+        "rootDir": "./src",
+        "types": ["jwt-decode"]
+    },
+    "include": ["src"],
+    "typeRoots": ["./node_modules/@types", "./src/types"],
+    
+}
