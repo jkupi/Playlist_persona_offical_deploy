@@ -10,12 +10,12 @@ export default defineConfig({
       '/api': {
         target: 'https://test-deploy-ivka.onrender.com',
         changeOrigin: true,
-        secure: false,
+        secure: true,
       },
       '/auth': {
         target: 'https://test-deploy-ivka.onrender.com',
         changeOrigin: true,
-        secure: false,
+        secure: true,
       },
     },
 
