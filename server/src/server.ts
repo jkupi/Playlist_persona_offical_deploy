@@ -1,5 +1,3 @@
-const forceDatabaseRefresh = false;
-
 import express, { Request, Response } from "express";
 import routes from "./routes/index.js";
 import { generatePlaylist, generateQuestions } from "./services/gptServices.js";
@@ -11,6 +9,9 @@ import sequelize from "./config/connection.js";
 
 const app = express();
 const port = process.env.PORT || 3001;
+const forceDatabaseRefresh = false;
+
+app.use(cors({ origin: process.env.FRONTEND_URL || "http://localhost:3000" }));
 
 // Serves static files in the entire client's dist folder
 app.use(express.static("../client/dist"));
@@ -23,9 +24,6 @@ sequelize.sync({ force: forceDatabaseRefresh }).then(() => {
     console.log(`Server is listening on port ${port}`);
   });
 });
-
-
-app.use(cors({ origin: "http://localhost:3000" }));
 
 // // Serves static files in the entire client's dist folder
 // app.use(express.static('../client/dist'));
