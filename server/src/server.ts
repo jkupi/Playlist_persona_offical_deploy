@@ -74,9 +74,9 @@ app.post("/playlist", async (req: Request, res: Response) => {
   }
 });
 
-// app.get('*', (_req, res) => {
-//   res.sendFile(path.join(__dirname, '../../../client/dist', 'index.html'));
-// });
+app.get('*', (_req, res) => {
+  res.sendFile('../client/dist');
+});
 
 app.get("/questions", async (_req: Request, res: Response) => {
   const questions = await generateQuestions();
