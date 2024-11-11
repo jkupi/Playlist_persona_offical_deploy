@@ -28,7 +28,7 @@ const HomePage: React.FC = () => {
     const fetchQuestions = async () => {
       try {
         console.log("This where i am");
-        const response = await fetch("http://localhost:3001/questions", {});
+        const response = await fetch("http://localhost:3001/api/questions", {});
 
         if (!response.ok) {
           throw new Error("Failed to fetch questions");

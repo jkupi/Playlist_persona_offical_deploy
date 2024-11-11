@@ -64,7 +64,7 @@ const CurrentPlaylist: React.FC = () => {
         const questions = JSON.parse(localStorage.getItem("questions") || "[]");
         const answers = JSON.parse(localStorage.getItem("answers") || "[]");
 
-        const response = await fetch("http://localhost:3001/playlist", {
+        const response = await fetch("http://localhost:3001/api/playlist", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
