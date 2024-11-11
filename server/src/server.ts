@@ -2,11 +2,11 @@ import express from "express";
 import routes from "./routes/index.js";
 import cors from "cors";
 import sequelize from "./config/connection.js";
-// import path from "path";
-// import { fileURLToPath } from "url";
+import path from "path";
+import { fileURLToPath } from "url";
 // import app from "./app.js";
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -20,7 +20,7 @@ app.use(cors({
 // Serves static files in the entire client's dist folder
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-app.use(express.static("../client/dist"));
+app.use(express.static(path.join(__dirname, "../client/dist")));
 
 app.use(routes);
 
