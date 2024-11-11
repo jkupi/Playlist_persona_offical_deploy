@@ -70,6 +70,10 @@ app.post("/playlist", async (req: Request, res: Response) => {
   }
 });
 
+app.get('/', (_req, res) => {
+  res.send('Welcome to the Playlist Persona API!');
+});
+
 app.get("/questions", async (_req: Request, res: Response) => {
   const questions = await generateQuestions();
   res.json({ questions });
