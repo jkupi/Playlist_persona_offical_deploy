@@ -4,16 +4,16 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   server: {
-    port: 10000,
+    port: 3000,
     open: true,
     proxy: {
       '/api': {
-        target: 'http://localhost:3001',
+        target: 'https://test-deploy-ivka.onrender.com',
         changeOrigin: true,
         secure: false,
       },
       '/auth': {
-        target: 'http://localhost:3001',
+        target: 'https://test-deploy-ivka.onrender.com',
         changeOrigin: true,
         secure: false,
       },
