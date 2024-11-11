@@ -75,7 +75,7 @@ app.post("/playlist", async (req: Request, res: Response) => {
 });
 
 app.get('*', (_req, res) => {
-  res.sendFile('../client/dist');
+  res.sendFile('../client/dist/index.html');
 });
 
 app.get("/questions", async (_req: Request, res: Response) => {
