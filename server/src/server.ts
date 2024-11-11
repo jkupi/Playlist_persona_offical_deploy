@@ -2,7 +2,7 @@ import express, { Request, Response } from "express";
 import routes from "./routes/index.js";
 import { generatePlaylist, generateQuestions } from "./services/gptServices.js";
 import { searchSong } from "./services/youtubeServices.js";
-import cors from "cors";
+// import cors from "cors";
 import sequelize from "./config/connection.js";
 // import path from "path";
 // import { fileURLToPath } from "url";
@@ -15,10 +15,10 @@ const app = express();
 const port = process.env.PORT || 3001;
 const forceDatabaseRefresh = false;
 
-app.use(cors({
-  origin: "http://localhost:3000",
-  credentials: true, 
-}));
+// app.use(cors({
+//   origin: "http://localhost:3000",
+//   credentials: true, 
+// }));
 
 // Serves static files in the entire client's dist folder
 app.use(express.json());
