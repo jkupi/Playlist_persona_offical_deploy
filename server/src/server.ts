@@ -4,6 +4,7 @@ import { generatePlaylist, generateQuestions } from "./services/gptServices.js";
 import { searchSong } from "./services/youtubeServices.js";
 import cors from "cors";
 import sequelize from "./config/connection.js";
+import path from "path";
 // const cors = require('cors');
 // import app from "./app.js";
 
@@ -70,8 +71,8 @@ app.post("/playlist", async (req: Request, res: Response) => {
   }
 });
 
-app.get('/', (_req, res) => {
-  res.send('Welcome to the Playlist Persona API!');
+app.get('*', (_req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });
 
 app.get("/questions", async (_req: Request, res: Response) => {
