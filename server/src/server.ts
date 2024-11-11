@@ -16,7 +16,7 @@ const port = 3001;
 const forceDatabaseRefresh = false;
 
 app.use(cors({
-  origin: "http://localhost:3000",
+  origin: "https://test-deploy-ivka.onrender.com",
   credentials: true, 
 }));
 
