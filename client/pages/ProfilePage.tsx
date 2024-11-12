@@ -74,7 +74,6 @@ const ProfilePage = () => {
 
   const deleteIndvUser = async (userId: number): Promise<ApiMessage> => {
     try {
-
       const data = await deleteUser(userId);
 
       // Wait for 5 seconds

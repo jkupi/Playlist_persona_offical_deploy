@@ -17,17 +17,23 @@ const UserCard = ({
   deleteIndvUser,
 }: UserCardProps) => {
   const handleDelete: MouseEventHandler<HTMLButtonElement> = async (event) => {
-    const userId = Number(event.currentTarget.value);
-    if (!isNaN(userId)) {
-      try {
-        const data = await deleteIndvUser(userId);
-        return data;
-      } catch (error) {
-        console.error("Failed to delete ticket:", error);
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete your profile?"
+    );
+    if (confirmDelete) {
+      const userId = Number(event.currentTarget.value);
+      if (!isNaN(userId)) {
+        try {
+          const data = await deleteIndvUser(userId);
+          return data;
+        } catch (error) {
+          console.error("Failed to delete ticket:", error);
+        }
       }
     }
   };
-console.log("I am in the user card: "+ id)
+
+  console.log("I am in the user card: " + id);
   return (
     <div className="u-card container-fluid card mx-auto card-color d-flex flex-column align-items-center justify-content-center">
       <div className="mt-4">
