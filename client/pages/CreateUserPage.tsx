@@ -56,7 +56,7 @@ const CreateUser = () => {
       {loginCheck ? (
         <div>
           <h1 className="fw-bold">User already logged in</h1>
-          <h3 className="body-text fst-italic">Navigate to the home page to create a playlist!</h3>
+          <h3 className="body-text fst-italic">Navigate to the generate playlist page to create a new playlist!</h3>
         </div>
       ) : ( 
         <div className="w-75 p-3 center">

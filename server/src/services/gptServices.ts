@@ -147,7 +147,7 @@ export async function generatePlaylist(
 
           Please don't respond with ANY other text than the song name and the artist name in JSON format as follows: [
           {"songTitle": "song title", "artistName": "name"},
-           {"songTitle": "song title", "artistName": "name"},
+          {"songTitle": "song title", "artistName": "name"},
             {etc...}
             ]`,
         },
