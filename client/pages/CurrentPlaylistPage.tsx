@@ -149,7 +149,7 @@ const CurrentPlaylist: React.FC = () => {
                         )}
                         {playlist.map((song, index) => (
                             <div className="card card-margin card-color mx-auto w-75" key={index}>
-                                <div className="card-header d-flex justify-content-between">
+                                <div className="card-header d-flex justify-content-between align-items-center">
                                     <div className="text-start">
                                         <h3 className="fw-bold">{song.songTitle}</h3>
                                         <h5 className="fst-italic">{song.artistName}</h5>

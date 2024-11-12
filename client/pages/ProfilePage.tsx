@@ -9,6 +9,7 @@ import auth from "../src/utils/auth";
 // import { ToastContainer, toast } from 'react-toastify';
 import { retrievePlaylistsByUserId, deletePlaylist } from "../src/api/playlistAPI";
 import PlayListCard from "../src/components/PlaylistCard";
+import { NavLink } from "react-router-dom";
 
 const ProfilePage = () => {
   const [user, setUser] = useState<UserData>();
@@ -75,7 +76,6 @@ const ProfilePage = () => {
     try {
 
       const data = await deleteUser(userId);
-      // toast.success("User has been deleted successfully!"); // Toast notification
 
       // Wait for 5 seconds
       await wait(5000); // 5000 milliseconds = 5 seconds
@@ -94,7 +94,6 @@ const ProfilePage = () => {
     try {
 
       const data = await deletePlaylist(playListId);
-      // toast.success("Playlist has been deleted successfully!"); // Toast notification
 
       // Wait for 5 seconds
       await wait(5000); // 5000 milliseconds = 5 seconds
@@ -116,11 +115,10 @@ const ProfilePage = () => {
   }
   else {
     return (
-      <div className='user-list container-fluid card-margin mx-auto p-3 w-75'>
+      <div className='user-list container-fluid card-margin mx-auto p-3 w-100'>
         {user ? (
           <div>
-            <div className="card-justify-align card">
-              {/* {<ToastContainer />} */}
+            <div className="container-fluid card w-100 d-flex">
               <UserCard
                 key={user.id}
                 id={user.id}
@@ -130,8 +128,12 @@ const ProfilePage = () => {
                 deleteIndvUser={deleteIndvUser}
               />
             </div>
-            <div className="card-justify-align card">
-              {savedPlaylists.length > 0 ? ( // Check if there are saved playlists
+            <div className="p-3 mt-3">
+              <h1 className="fw-bold">Saved Playlists:</h1>
+            </div>
+            <div className="card w-100 mx-auto mt-3 container-fluid body-text">
+              {savedPlaylists.length > 0 ? (
+              
                 savedPlaylists.map(playlist => (
                   <PlayListCard
                     key={playlist.id}
@@ -143,7 +145,16 @@ const ProfilePage = () => {
                   />
                 )
                 )
-              ) : (<h1>do something if the playlist is not there!!!</h1>)}
+              ) : (
+                <div className="card-color ms-auto mx-auto p-4 w-100 fst-italic body-text-alt">
+                  <h5>You don't have any saved playlists yet...</h5>
+                    <div className="mt-4">
+                      <NavLink to="/generatePlaylist" className="body-text-alt fst-italic fw-bold">
+                      <h5 className="fw-bold">Click here to create one!</h5>
+                      </NavLink>
+                  </div>
+              </div>
+              )}
             </div>
           </div>
         ) : (

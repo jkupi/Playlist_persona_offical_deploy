@@ -18,11 +18,11 @@ const Nav = () => {
     }, [loginCheck]);
 
     return (
-        <nav className="navbar navbar-expand-lg rounded">
+        <nav className="navbar navbar-expand-lg rounded p-2">
             <div className="container-fluid">
                 {/* App name */}
                 <div className="ms-2">
-                    <NavLink className="navbar-brand fw-bold" to="/" style={{ color: '#2e4b40', fontSize: '1.5rem' }}>
+                    <NavLink className="navbar-brand fw-bold" to="/profile" style={{ color: '#2e4b40', fontSize: '1.5rem' }}>
                         <img className="justify-content-center"
                             src="/assets/pp-rf-logo.svg"
                             style={{ height: '65px', marginRight: '8px' }} />
@@ -43,10 +43,10 @@ const Nav = () => {
                 </button>
 
                 {/* Collapsible Navbar Section */}
-                <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div className="collapse navbar-collapse mx-auto p-1" id="navbarNavAltMarkup">
                     {/* Navigation Links */}
-                    <div className="navbar-nav container-fluid d-flex flex-row mx-auto align-items-center justify-content-between gap-3">
-                        <div className="nav nav-pills nav-fill ms-auto gap-lg-3 gap-3 p-3 d-flex flex-row">
+                    <div className="navbar-nav container-fluid d-flex flex-column flex-lg-row mx-auto align-items-center gap-3 mb-2">
+                        <div className="nav nav-pills nav-fill mx-auto gap-4 d-flex flex-row justify-content-between align-items-center text-center">
                             <div className="nav-item">
                                 <NavLink className="nav-link rounded-pill btn btn-light" to="/createAccount">
                                     Create Account

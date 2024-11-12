@@ -28,7 +28,7 @@ const HomePage: React.FC = () => {
     const fetchQuestions = async () => {
       try {
         console.log("This where i am");
-        const response = await fetch("https://test-deploy-ivka.onrender.com/api/questions", {});
+        const response = await fetch("https://test-deploy-ivka.onrender.com/api/questions", {});      
 
         if (!response.ok) {
           throw new Error("Failed to fetch questions");
